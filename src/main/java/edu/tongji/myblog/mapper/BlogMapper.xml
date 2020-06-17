@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--SQL语句，与mapper中的接口一一对应，namespace为Mapper接口，resultType为查询结果实体类，id对应Mapper接口中的方法名-->
+<mapper namespace="edu.tongji.myblog.mapper.BlogMapper">
+    <select id="getBlog" resultType="edu.tongji.myblog.entity.Blog">
+        SELECT blogId,title,author,cover,content FROM blog where blogId=#{blogId}
+    </select>
+    <select id="getRecommendBlog" resultType="edu.tongji.myblog.entity.Blog">
+        SELECT blogId,title,author,cover,content from blog where blogId=1 OR blogId=2
+    </select>
+    <select id="getAllBlog" resultType="edu.tongji.myblog.entity.Blog">
+        SELECT blogId,title,author,cover,content from blog where author=#{usr}
+    </select>
+    <insert id="addBlog">
+        INSERT INTO blog(title,author,cover,content) value(#{title},#{author},#{cover},#{content})
+    </insert>
+    <update id="changeBlog">
+        UPDATE blog SET title=#{title},author=#{author},cover=#{cover},content=#{content}
+        where blogId=#{blogId}
+    </update>
+
+</mapper>

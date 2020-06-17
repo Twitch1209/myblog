@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>write</title>
+    <script src="/JS/jquery-3.3.1.min.js"></script>
+    <script src="/JS/bootstrap.min.js"></script>
+    <script src="/JS/write.js"></script>
+    <link rel="stylesheet" th:href="@{/CSS/bootstrap.min.css}">
+</head>
+<body onload="init()">
+<!--顶部导航-->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index">我的博客</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/index">首页</a></li>
+                <li class="active"><a href="/write">发布文章</a></li>
+                <li><a href="/personInfo">个人界面</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        更多  <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">留下的扩展</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">扩展</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="loginInfo">
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--博客发布-->
+<div class="container">
+    <div class="col-sm-9 col-sm-offset-1 col-lg-9 col-lg-offset-1">
+        <div class="form-horizontal" role="form">
+			<div class="form-group">
+				<label class="col-sm-2 col-lg-2 control-label">标题</label>
+    			<div class="col-sm-9">
+      				<input type="text" class="form-control" id="blogTitle" placeholder="请输入标题">
+    			</div>
+			</div>
+			<div class="form-group">
+    			<div class="col-sm-9 col-sm-offset-2 col-lg-9 col-lg-offset-2 control-label" id="cover">
+                    <input type="file" name="file" id="myFile" style="display: none"/>
+                    <div id="myImg">
+                        <!--预览图片位置，默认图片-->
+                        <img src="/photo/show?fileName=test.jpg" class="img-responsive" alt="封面">
+                    </div>
+    			</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 col-sm-offset-5 col-lg-2 col-lg-offset-5">
+					<button type="submit" class="btn btn-default" onclick="$('#myFile').click();">上传封面</button>
+				</div>
+			</div>
+			<div class="form-group">
+    			<label class="col-sm-2 col-lg-2 control-label">内容</label>
+				<div class="col-sm-9 col-sm-offset-0 col-lg-9 col-lg-offset-0">
+					<textarea class="form-control" rows="20" id="content"></textarea>
+				</div>
+  			</div>
+			<div class="form-group">
+				<div class="col-sm-2 col-sm-offset-5 col-lg-2 col-lg-offset-5">
+					<button type="submit" class="btn btn-default btn-lg" onclick="addBlog()">发布</button>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+</body>
+</html>

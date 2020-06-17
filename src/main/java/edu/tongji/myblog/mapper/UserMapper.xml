@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--SQL语句，与mapper中的接口一一对应，namespace为Mapper接口，resultType为查询结果实体类，id对应Mapper接口中的方法名-->
+<mapper namespace="edu.tongji.myblog.mapper.UserMapper">
+    <select id="getAllUser" resultType="edu.tongji.myblog.entity.User">
+        SELECT usr,pwd FROM user
+    </select>
+    <select id="getAccount" parameterType="String" resultType="String">
+        SELECT pwd from user where usr=#{usr}
+    </select>
+    <insert id="register">
+        INSERT INTO user(usr,pwd,avatar,email,sign) value(#{usr},#{pwd},"test.jpg",null,null)
+    </insert>
+    <update id="changeInfo">
+        UPDATE user SET pwd=#{pwd},avatar=#{avatar},email=#{email},sign=#{sign}
+        where usr=#{usr}
+    </update>
+    <select id="getUser" parameterType="String" resultType="edu.tongji.myblog.entity.User">
+        SELECT usr,pwd,avatar,email,sign from user where usr=#{usr}
+    </select>
+
+</mapper>

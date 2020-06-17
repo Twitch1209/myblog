@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*博客补充css*/
+.blog-title{
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.blog-info{
+    line-height: 1.8;
+    color: #9d9d9d;
+    font-size: 15px;
+}
+
+.blog-info .label{
+    opacity: 0.8;
+}
+
+.blog-content{
+    padding-top: 15px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.blog-content img{
+    margin: 15px auto;
+}

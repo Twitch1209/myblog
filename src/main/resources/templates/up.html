@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="/JS/jquery-3.3.1.min.js"></script>
+<body>
+<h1>Spring Boot file upload example</h1>
+<form method="POST" action="/photo/testUpdate" enctype="multipart/form-data">
+    <input type="file" name="file" id="myFile"/><br/><br/>
+    <input type="submit" value="Submit" />
+    <span id="myImg">
+        <!--预览图片位置，默认图片-->
+        <img src="./img/notlogin.jpg" class="img-circle">
+    </span>
+    <!--点击选择文件-->
+    <button type="button" id="ttt" class="btn btn-default" onclick="$('#myFile').click();" >浏览</button>
+</form>
+</body>
+<script>
+var myfile=document.getElementById("myFile");
+myfile.onchange=function(){
+    var file=this.files[0];
+    var url=window.URL.createObjectURL(file);
+    document.getElementById("myImg").innerHTML="<img src='"+url+"' class='img-circle'/>";
+}
+</script>
+
+</html>

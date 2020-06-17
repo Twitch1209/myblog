@@ -1,0 +1,84 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>blog</title>
+	<script src="/JS/jquery-3.3.1.min.js"></script>
+	<script src="/JS/bootstrap.min.js"></script>
+    <script src="/JS/blog.js"></script>
+    <link rel="stylesheet" th:href="@{/CSS/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/blog.css}">
+</head>
+
+<body onload="init()">
+<!--顶部导航-->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">我的博客</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/index">首页</a></li>
+                <li><a href="/write">发布文章</a></li>
+                <li><a href="/personInfo">个人界面</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        更多  <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">留下的扩展</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">扩展</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="loginInfo">
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+        <h1 class="blog-title" id="blogTitle">记录点滴，记录成长。用博客记录技术与经验的积累，在这里找到志同道合的朋友，编程的乐趣。</h1>
+        <div class="blog-info">
+            <span class="avatar" id="authorPhoto">
+
+            </span>
+            <span id="author">散人</span> |
+            <span>2.8K热度</span> |
+            <span>5分钟前</span>
+            <label class="label label-info">编程</label>
+            <label class="label label-warning">博客</label>
+            <!--label class="label label-success">Java</label-->
+        </div>
+        <div class="blog-content" id="blogCover">
+            <blockquote>
+                <p>博客生活，记录点滴</p>
+            </blockquote>
+            <!--img src="../img/ic_p4.jpg" class="img-responsive" alt="photo"-->
+        </div>
+        <div id="blogContent">
+            如果你有大量的设置为 inline 属性的标签全部放在一个较窄的容器元素内，在页面上展示这些标签就会出现问题，每个标签就会有自己的一个 inline-block 元素（就像图标一样）。
+            解决的办法是为每个标签都设置为 display: inline-block; 属性。
+            如果你有大量的设置为 inline 属性的标签全部放在一个较窄的容器元素内，在页面上展示这些标签就会出现问题，每个标签就会有自己的一个 inline-block 元素（就像图标一样）。
+            解决的办法是为每个标签都设置为 display: inline-block; 属性。
+        </div>
+        <div class="col-sm-2 col-sm-offset-5 col-lg-2 col-lg-offset-5" id="editMsg">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
