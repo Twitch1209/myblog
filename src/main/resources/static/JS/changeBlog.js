@@ -1,4 +1,5 @@
 
+var coverPhoto;
 function init(){
     //是否登录
     checkCookie();
@@ -98,12 +99,12 @@ function changeBlog(){
         cover=coverPhoto;
         $.ajax({
             type: "POST",
-            url: "/blog/addBlog",
-            data: {"title":title,"author":author,"cover":cover,"content":content},
+            url: "/blog/changeBlog",
+            data: {"blogId":blogId,"title":title,"author":author,"cover":cover,"content":content},
             dataType: "text",
             success: function (data) {
                if (data == "Success") {
-                    location.href("/index");
+                    location.href="/blog?blogId="+blogId;
                 }
             }, error: function (error) {
                 console.log(error);
@@ -142,6 +143,7 @@ function setBlogInfo(blogId){
                     alert("您不是该博客的作者！请先登录");
                     location.href="/blog?blogId="+blogId;
                 }
+                coverPhoto=data.cover;
                 document.getElementById("myImg").innerHTML="<img src='/photo/show?fileName="+data.cover+"' class='img-responsive'/>";
             }
         }, error: function (error) {

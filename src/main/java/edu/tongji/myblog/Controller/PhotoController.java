@@ -26,29 +26,6 @@ public class PhotoController {
     //Save the uploaded file to this folder
     private static String UPLOADED_FOLDER = "D://githublocal//myblog//src//main//resources//uploadFile//";
 
-    @PostMapping("/upload")
-    public String singleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes) {
-        if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-            return "redirect:uploadStatus";
-        }
-
-        try {
-            // Get the file and save it somewhere
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-            Files.write(path, bytes);
-
-            redirectAttributes.addFlashAttribute("message",
-                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
-            System.out.println("You successfully uploaded '" + path + "'");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "redirect:/show";
-    }
-
     /**
      * 上传图片
      * @author twitch

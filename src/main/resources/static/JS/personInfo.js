@@ -74,7 +74,7 @@ function changePersonInfo(){
     var usr=getCookie("username");
     var pwd=document.getElementById("pwd").value;
     var email=document.getElementById("email").value;
-    var sign=document.getElementById("sign").innerHTML;
+    var sign=document.getElementById("sign").value;
     //头像图片
     var avatarData=new FormData();
     avatarData.append('file',$('#myFile')[0].files[0]);
@@ -116,7 +116,7 @@ function changePersonInfo(){
     }
     else{
         avatar=avatarPhoto;
-        alert(usr+"/"+pwd+"/"+avatar+"/"+email+"/"+sign);
+        //alert(usr+"/"+pwd+"/"+avatar+"/"+email+"/"+sign);
         $.ajax({
             type: "POST",
             url: "/account/changeInfo",

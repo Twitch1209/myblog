@@ -1,4 +1,5 @@
 
+var coverPhoto="test.jpg";
 function init(){
     //是否登录
     checkCookie();
@@ -70,7 +71,7 @@ function addBlog(){
             //dataType: "text",
             success: function (data) {
                if (data == "Success") {
-                    alert("Success");
+                    //alert("Success");
                 }
             }, error: function (error) {
                 console.log(error);
@@ -99,7 +100,7 @@ function addBlog(){
             dataType: "text",
             success: function (data) {
                if (data == "Success") {
-                    location.href("/index");
+                    location.href="/index";
                 }
             }, error: function (error) {
                 console.log(error);
